@@ -30,7 +30,7 @@
     type = OrianiHydrogenMaterial
     lattice_concentration = C_L
     lattice_site_density = 8.468e5 # mol lattice sites/m^3
-    reference_trap_density = 0.3022 # 10^23.26 mol trap sites/m^3
+    reference_trap_density = 0.3022 # 10^23.26 sites/m^3, converted to mol trap sites/m^3
     binding_energy = -35200
     temperature = 293
   []

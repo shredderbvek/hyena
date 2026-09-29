@@ -31,6 +31,21 @@
   []
 []
 
+[AuxVariables]
+  [equivalent_plastic_strain]
+    family = MONOMIAL
+    order = CONSTANT
+  []
+[]
+
+[AuxKernels]
+  [equivalent_plastic_strain_output]
+    type = MaterialRealAux
+    variable = equivalent_plastic_strain
+    property = equivalent_plastic_strain
+  []
+[]
+
 [Physics/SolidMechanics/QuasiStatic/all]
   strain = FINITE
   incremental = true
@@ -47,6 +62,10 @@
     type = HydrogenFickDiffusion
     variable = C_L
     diffusivity = 1.3e-9
+  []
+  [dislocation_trap_evolution]
+    type = DislocationTrapEvolution
+    variable = C_L
   []
   [hydrostatic_stress_projection]
     type = MaterialPropertyValue
@@ -121,6 +140,10 @@
     h = 5.415e8
     t_sat = 1.098e8
     gss_initial = 3.0e7
+  []
+  [equivalent_plastic_strain]
+    type = CPEquivalentPlasticStrain
+    number_slip_systems = 12
   []
   [hydrostatic_stress]
     type = HydrostaticStressMaterial
